@@ -11,7 +11,7 @@ def testTranslate():
     url = 'https://api-platform.systran.net/translation/text/translate'
     inputArray = '?input='
     source = 'source=en'
-    targetChinese = 'target=zh'
+    targetChinese = 'target=zh-Hans'
     targetDutch = 'target=nl'
     targetGerman = 'target=de'
     targetJapanese = 'target=ja'       
@@ -25,21 +25,23 @@ def testTranslate():
     inputArray = inputArray + source1
     urlChinese = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetChinese,midOptions,key)
     #urlDutch = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetDutch,midOptions,key)
-    #urlGerman = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetGerman,midOptions,key)
-    #urlJapanese = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetJapanese,midOptions,key)
+    urlGerman = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetGerman,midOptions,key)
+    urlJapanese = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetJapanese,midOptions,key)
     inFile.close()
     #print(url.encode('utf=8'))
    
     #%5B%22hello%20world%22%2C%20%22goodbye%22%5D&source=en&target=de&withSource=true&withAnnotations=false&backTranslation=false&encoding=utf-8&key=c00a0b4f-e62e-432a-9e16-15c1ef2bab09'
     
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-    response = requests.get(urlChinese)
+    response = requests.get(urlJapanese)
     data = response.json()
     
-    
-    result = re.split('[\[,\]]',data["outputs"][0]["output"])
-    source = re.split('[\[,\]]',data["outputs"][0]["source"])
-    print("result {}".format(result))
+    #result = re.split("[u'\uff0c']",data["outputs"][0]["output"])
+    #result = re.split("[\[,u'\uff0c'\]]",data["outputs"][0]["output"])
+    result = re.compile("[\su'\uff0c']").split(data["outputs"][0]["output"])
+    source = re.split("[\[,\]]",data["outputs"][0]["source"])
+    #print("result {}".format(result))
+    print(len(result))
     print("source {}".format(source))
     #print(len(source))
     resultFile = open("translations.txt",'w')
@@ -49,7 +51,7 @@ def testTranslate():
     resultFile.close()
     
     
-    ###**********************####
+    ###**********************#
     #print(data[2].encode("ascii","ignore").strip())
     #outArray = data["outputs"][0]["output"].split("'")
     #sourceArray = data["outputs"][0]["source"]
