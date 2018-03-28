@@ -1,11 +1,72 @@
 import requests
 import json
 import re
-#from BeautifulSoup import *
-    # If you don't specify credentials when constructing the client, the
-    # client library will look for credentials in the environment.
-   
+import os
 
+def chineseTranslate(url, target, inputArray,source,midOptions,inFile, key):
+    
+    
+    url = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,target,midOptions,key)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    response = requests.get(url)
+    data = response.json()
+    
+    temp = (data["outputs"][0]["output"]).replace(u'\uff0c',',')
+    result = re.split('[\[,\]]',temp)
+    source = re.split('[\[,\]]',data["outputs"][0]["source"])
+    print(source)
+    resultFile = open("chinese_translations.txt",'w')
+    writeToFile(resultFile, source, result)
+    
+def japaneseTranslate(url, target, inputArray,source,midOptions,inFile, key):
+    
+    
+    url = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,target,midOptions,key)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    response = requests.get(url)
+    data = response.json()
+    temp = (data["outputs"][0]["output"]).replace(u'\u300d\u3001\u300c',',')
+    temp = temp.replace(u'\u300d\u300c',',')
+    temp = temp.replace(u'\u300c','')
+    temp = temp.replace(u'\u300d','')
+    result = re.split('[\[,\]]',temp)
+    source = re.split("[\[,\]]",data["outputs"][0]["source"])
+    resultFile = open("japanese_translations.txt",'w')
+    writeToFile(resultFile, source, result)
+
+
+
+def writeToFile(resultFile, source, result):
+    print("Result {}:{}".format(os.path.basename(resultFile.name),len(result)))
+    print("Source {}:{}".format(os.path.basename(resultFile.name),len(source)))
+    
+    for x in range(1, len(result)-1):
+        resultFile.write("{}:{}\n".format(source[x].encode("utf-8").strip(),result[x].encode("utf-8").strip()))
+    resultFile.close()
+    
+def germanTranslate(url, target, inputArray,source,midOptions,inFile, key):
+    
+    url = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,target,midOptions,key)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    response = requests.get(url)
+    data = response.json()
+    result = re.split('[\[,\]]',data["outputs"][0]["output"])
+    source = re.split("[\[,\]]",data["outputs"][0]["source"])
+    resultFile = open("german_translations.txt",'w')
+    writeToFile(resultFile, source, result)
+    
+def dutchTranslate(url, target, inputArray,source,midOptions,inFile, key):
+    
+    url = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,target,midOptions,key)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    response = requests.get(url)
+    data = response.json()
+    result = re.split('[\[,\]]',data["outputs"][0]["output"])
+    source = re.split("[\[,\]]",data["outputs"][0]["source"])
+    resultFile = open("dutch_translations.txt",'w')
+    writeToFile(resultFile, source, result)
+    
+    
 def testTranslate():
     
     url = 'https://api-platform.systran.net/translation/text/translate'
@@ -23,32 +84,35 @@ def testTranslate():
     source1 = '[{}]'.format(','.join(source1).replace("\n",""))
     
     inputArray = inputArray + source1
-    urlChinese = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetChinese,midOptions,key)
-    #urlDutch = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetDutch,midOptions,key)
-    urlGerman = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetGerman,midOptions,key)
-    urlJapanese = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetJapanese,midOptions,key)
+    #print(inputArray)
+    chineseTranslate(url, targetChinese, inputArray, source, midOptions, inFile, key)
+    #germanTranslate(url, targetGerman, inputArray,source,midOptions,inFile,key)
+    #dutchTranslate(url, targetDutch, inputArray,source,midOptions,inFile,key)
+    #japaneseTranslate(url, targetJapanese, inputArray,source,midOptions,inFile,key)
+
+    #urlJapanese = "{}{}&{}&{}&{}&{}".format(url,inputArray,source,targetJapanese,midOptions,key)
     inFile.close()
-    #print(url.encode('utf=8'))
-   
-    #%5B%22hello%20world%22%2C%20%22goodbye%22%5D&source=en&target=de&withSource=true&withAnnotations=false&backTranslation=false&encoding=utf-8&key=c00a0b4f-e62e-432a-9e16-15c1ef2bab09'
     
-    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-    response = requests.get(urlJapanese)
-    data = response.json()
-    
+    #headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    #response = requests.get(urlJapanese)
+    #data = response.json()
+    #temp = (data["outputs"][0]["output"]).replace(u'\uff0c',',')
+    #result = re.split('[[\[\,\]]',temp)
     #result = re.split("[u'\uff0c']",data["outputs"][0]["output"])
-    #result = re.split("[\[,u'\uff0c'\]]",data["outputs"][0]["output"])
-    result = re.compile("[\su'\uff0c']").split(data["outputs"][0]["output"])
-    source = re.split("[\[,\]]",data["outputs"][0]["source"])
+    #result = re.split('[[\[\,\]]',data["outputs"][0]["output"])
+    #result = result[0].split(u'\uff0c')
+    #result = re.compile("[\su'\uff0c']").split(data["outputs"][0]["output"])
+    #result = (data["outputs"][0]["output"]).split(u'\uff0c')
+    #source = re.split("[\[,\u'\uff0c'\]]",data["outputs"][0]["source"])
     #print("result {}".format(result))
-    print(len(result))
-    print("source {}".format(source))
+    #print(len(result))
+    #print("source {}".format(source))
     #print(len(source))
-    resultFile = open("translations.txt",'w')
-    
-    for x in range(1, len(result)-1):
-        resultFile.write("{}:{}\n".format(source[x].encode("utf-8").strip(),result[x].encode("utf-8").strip()))
-    resultFile.close()
+    #resultFile = open("japanese_translations.txt",'w')
+    #
+    #for x in range(1, len(result)-1):
+    #    resultFile.write("{}:{}\n".format(source[x].encode("utf-8").strip(),result[x].encode("utf-8").strip()))
+    #resultFile.close()
     
     
     ###**********************#
