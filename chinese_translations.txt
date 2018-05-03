@@ -1,24 +1,31 @@
-Prices may not reflect real-time pricing or availability Prices will be updated at least every two hours:价格可能不反射实时定价或将更新可及性价格至少每两个小时
-Price displayed may only be available for select periods during available booking window:价格显示了也许只取得到精选的期间在可利用的售票窗口期间
-Prices displayed above are subject to change and are not guaranteed until payment is made and accepted:被显示的价格以上是随时变化和没有被保证
-Seasonal start and end dates apply and are indicated in the booking flow:直到付款付并且被接受
-Advertised prices taxes and fees may fluctuate based on exchange rate:季节性开始和截止日期在预定的流程
-Seats at these fares are limited and may not be available on all flights:做广告的价格税申请和被表明
-New bookings only:并且费也许动摇基于汇率
-Non-refundable:在这些车费的位子是有限的
-Advance purchase required:并且可能不取得到在所有飞行
-Flights may not operate on certain days:仅新的售票
-All fares shown are one-way:需要的不退款
-Limited quantities available at prices listed:预先购买
-Package prices may not reflect real-time pricing or availability:飞行不可以操作在某些天
-Pricing on this page is based on previous data collection (cache) Although we strive to be as accurate as possible up-to-date pricing and inventory will be provided upon your selection of a vacation package:显示的所有车费是单程
-Round-trip from select cities Other departure cities and dates available and prices may be higher:有限的可用数量以被列出的价格组合价格可能不反射实时定价或可及性
+Prices may not reflect realtime pricing or availability:将更新价格至少每两个小时
+Prices will be updated at least every two hours:价格显示了也许只取得到精选的期间在可利用的售票窗口期间
+Price displayed may only be available for select periods during available booking window:被显示的价格以上是随时变化和没有被保证
+Prices displayed above are subject to change and are not guaranteed until payment is made and accepted:直到付款付并且被接受
+Seasonal start and end dates apply and are indicated in the booking flow:季节性开始和截止日期在预定的流程
+Advertised prices taxes and fees may fluctuate based on exchange rate:做广告的价格税申请和被表明
+Seats at these fares are limited and may not be available on all flights:并且费也许动摇基于汇率
+New bookings only:在这些车费的位子是有限的
+Nonrefundable:并且可能不取得到在所有飞行
+Advance purchase required:仅新的售票
+Flights may not operate on certain days:需要的不退款
+All fares shown are oneway:预先购买
+Limited quantities available at priceslisted:飞行不可以操作在某些天
+Package prices may not reflect realtime pricing or availability:显示的所有车费是单程
+Pricing on this page is based on previous data collection (cache) Although we strive to be as accurate as possible uptodate pricing and inventory will be provided upon your selection of a vacation package:有限的可用数量以价格列出
+Roundtrip from select cities Other departure cities and dates available and prices may be higher:组合价格可能不反射实时定价或可及性
 Price is per guest based on double adult occupancy unless otherwise specified:定价在这页根据早先搜集数据(贮藏所)
 Taxes for US Mexico and Caribbean destinations can fluctuate based on exchange rate:虽然我们努力是一样准确的作为可能的最新定价
 Transfers not included unless otherwise specified:并且存货将提供在您的假期套装的选择
-Advance booking required:往返从精选的城市其他离开城市除非另外说明
-Non-refundable and non-transferable:并且可利用的日期和价格也许更高
+Advance booking required:从精选的城市的双程其他离开城市除非另外说明
+Nonrefundable and nontransferable:并且可利用的日期和价格也许更高
 Offers limited and subject to availability:价格是每个根据双重成人居住的客人
 New bookings only:美国的墨西哥税除非另外说明
 Not valid on group bookings:并且加勒比目的地可能动摇基于汇率
-Fuel surcharge between$44 - $90 round-trip still applies to Air Miles:调动没有包括得
+Fuel surchargebetween $44 $90 round trip still applies to Air Miles and trade;redemption bookings:调动没有包括得
+Other restrictions may apply:预订必需
+Quebec licensee:不退款
+OPC fees are charged at a rate of $100 per $1000:并且不可转让
+Mailing address 6085 Midfield Road Toronto ON L5P 1A2 TICO registration number 50018683:提供有限和取决于可及性
+Advertised destinations change frequently Although efforts are made to represent the general region being advertised the images shown are for illustration purposes only and may not accurately reflect the product being advertised:仅新的售票
+:无效在小组售票

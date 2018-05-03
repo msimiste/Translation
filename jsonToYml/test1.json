@@ -1,0 +1,13 @@
+{
+    "access":{
+        "acccess-phrase": "testing1234",
+            "phrase1":    "p1",
+            "phrase1": "p2"},
+    "testing2":{
+        "test-phrase": "yea ya",
+            "test2":{
+                "test-phrase3": "yea yea yea"
+                }
+        }
+
+}

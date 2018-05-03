@@ -12,7 +12,8 @@ def chineseTranslate(url, target, inputArray,source,midOptions,inFile, key):
     data = response.json()
     
     temp = (data["outputs"][0]["output"]).replace(u'\uff0c',',')
-    result = re.split('[\[,\]]',temp)
+    result = temp.split(',')
+    #result = re.split('[\[,\]]',temp)
     source = re.split('[\[,\]]',data["outputs"][0]["source"])
     print(source)
     resultFile = open("chinese_translations.txt",'w')
